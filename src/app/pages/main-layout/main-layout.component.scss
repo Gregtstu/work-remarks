@@ -1,0 +1,78 @@
+mat-toolbar{
+  background-color: #a88044;
+
+  .navigation {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+
+    &__item {
+      width: 32%;
+      text-align: center;
+
+    }
+
+    &__link {
+      text-decoration: none;
+      color: #b2986a;
+      font-size: 2rem;
+    }
+
+    &__link:hover, &__link.active {
+      font-weight: bold;
+      color: black;
+      cursor: pointer;
+    }
+
+  }
+
+  .burger{
+    display: none;
+  }
+  .dinamicNavigation{
+    display: none;
+  }
+  @media (max-width: 890px) {
+    .navigation__link {
+      font-size: 1.5rem;
+    }
+  }
+  @media (max-width: 580px) {
+    .burger{
+      display: block;
+      position: absolute;
+      right: 20px;
+    }
+    .dinamicNavigation{
+      display: block;
+    }
+    .navigation{
+      display: none;
+    }
+    .isOpen{
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      height: calc(100% - 90px);
+      background-color: #b7afaf;
+      font-size: 35px;
+      z-index: 1;
+    }
+
+    .navigation__item{
+      margin: 30% auto;
+      width: 100%;
+      line-height: 50px;
+      text-align: center;
+    }
+    .navigation__link{
+      color: white;
+    }
+
+  }
+
+}
