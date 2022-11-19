@@ -1,28 +1,36 @@
-<form class="mat-elevation-z5 form-container ">
-  <h2>Выбрать изделие:</h2>
-  <mat-form-field appearance="outline">
-    <mat-label>Выбрать изделие</mat-label>
-    <mat-select>
-      <mat-option value="изд. БРДК">изд. БРДК</mat-option>
-      <mat-option value="изд. БРДК-01">изд. БРДК-01</mat-option>
-      <mat-option value="изд. БРДК-02">изд. БРДК-02</mat-option>
-      <mat-option value="изд. АРМ">изд. АРМ</mat-option>
-      <mat-option value="изд. АБДС">изд. АБДС</mat-option>
-      <mat-option value="изд. РКСМ">изд. РКСМ</mat-option>
-      <mat-option value="изд. КЛМН">изд. КЛМН</mat-option>
-      <mat-option value="изд. ОПРСТ">изд. ОПРСТ</mat-option>
-      <mat-option value="изд. ЗБС-01">изд. ЗБС-01</mat-option>
-    </mat-select>
-  </mat-form-field>
-  <h2>Шифр КПА:</h2>
-  <mat-form-field appearance="outline">
-    <mat-label>Шифр КПА</mat-label>
-    <input matInput placeholder="Шифр КПА">
-  </mat-form-field>
-  <h2>Краткое описание:</h2>
-  <mat-form-field appearance="outline">
-    <mat-label>Основные характеристики</mat-label>
-    <textarea matInput></textarea>
-  </mat-form-field>
-  <button class="btn" type="button" mat-button>загрузить фото</button>
-</form>
+<section class="create">
+  <form class="mat-elevation-z5 form-container ">
+    <h2>Выбрать изделие:</h2>
+    <mat-form-field appearance="outline">
+      <mat-label>Выбрать изделие</mat-label>
+      <mat-select>
+        <mat-option value="изд. БРДК">изд. БРДК</mat-option>
+        <mat-option value="изд. БРДК-01">изд. БРДК-01</mat-option>
+        <mat-option value="изд. БРДК-02">изд. БРДК-02</mat-option>
+        <mat-option value="изд. АРМ">изд. АРМ</mat-option>
+        <mat-option value="изд. АБДС">изд. АБДС</mat-option>
+        <mat-option value="изд. РКСМ">изд. РКСМ</mat-option>
+        <mat-option value="изд. КЛМН">изд. КЛМН</mat-option>
+        <mat-option value="изд. ОПРСТ">изд. ОПРСТ</mat-option>
+        <mat-option value="изд. ЗБС-01">изд. ЗБС-01</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <h2>Шифр КПА:</h2>
+    <mat-form-field appearance="outline">
+      <mat-label>Шифр КПА</mat-label>
+      <input matInput placeholder="Шифр КПА">
+    </mat-form-field>
+    <h2>Краткое описание:</h2>
+    <mat-form-field appearance="outline">
+      <mat-label>Основные характеристики</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+    <input type="file" #input hidden (change)="fileUpload($event)">
+    <button class="btn" type="button" mat-button
+            (click)="triggerInput()">{{imagePrevew ? 'поменять фото' : 'загрузить фото'}}</button>
+    <div class="img" *ngIf="imagePrevew">
+      <img [src]="imagePrevew" alt="imagePrevew">
+      <button class="btn-close" (click)="imagePrevew = ''">&times;</button>
+    </div>
+  </form>
+</section>
