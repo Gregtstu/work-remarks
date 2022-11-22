@@ -1,36 +1,42 @@
 <section class="create">
-  <form class="mat-elevation-z5 form-container ">
-    <h2>Выбрать изделие:</h2>
+  <form class="mat-elevation-z5 form-container" [formGroup]="forma" (submit)="onSubmit()">
+    <h2>Наименование КПА:</h2>
     <mat-form-field appearance="outline">
-      <mat-label>Выбрать изделие</mat-label>
-      <mat-select>
-        <mat-option value="изд. БРДК">изд. БРДК</mat-option>
-        <mat-option value="изд. БРДК-01">изд. БРДК-01</mat-option>
-        <mat-option value="изд. БРДК-02">изд. БРДК-02</mat-option>
-        <mat-option value="изд. АРМ">изд. АРМ</mat-option>
-        <mat-option value="изд. АБДС">изд. АБДС</mat-option>
-        <mat-option value="изд. РКСМ">изд. РКСМ</mat-option>
-        <mat-option value="изд. КЛМН">изд. КЛМН</mat-option>
-        <mat-option value="изд. ОПРСТ">изд. ОПРСТ</mat-option>
-        <mat-option value="изд. ЗБС-01">изд. ЗБС-01</mat-option>
-      </mat-select>
+      <mat-label>Наименование КПА</mat-label>
+      <input matInput   formControlName="name">
+      <mat-error *ngIf="forma.get('name')?.errors?.['required']">
+        <b>*ОБЯЗАТЕЛЬНОЕ</b> для заполнения поле
+      </mat-error>
     </mat-form-field>
     <h2>Шифр КПА:</h2>
     <mat-form-field appearance="outline">
       <mat-label>Шифр КПА</mat-label>
-      <input matInput placeholder="Шифр КПА">
+      <input matInput  formControlName="shifr">
+      <mat-error *ngIf="forma.get('shifr')?.errors?.['required']">
+        <b>*ОБЯЗАТЕЛЬНОЕ</b> для заполнения поле
+      </mat-error>
     </mat-form-field>
-    <h2>Краткое описание:</h2>
+    <h2>Изделие:</h2>
+    <mat-form-field appearance="outline">
+      <mat-label>Изделие</mat-label>
+      <input matInput  formControlName="izd">
+      <mat-error *ngIf="forma.get('izd')?.errors?.['required']">
+        <b>*ОБЯЗАТЕЛЬНОЕ</b> для заполнения поле
+      </mat-error>
+    </mat-form-field>
+    <h2>Основные характеристики:</h2>
     <mat-form-field appearance="outline">
       <mat-label>Основные характеристики</mat-label>
-      <textarea matInput></textarea>
+      <textarea matInput  formControlName="description"></textarea>
+      <mat-error *ngIf="forma.get('description')?.errors?.['required']">
+        <b>*ОБЯЗАТЕЛЬНОЕ</b> для заполнения поле
+      </mat-error>
     </mat-form-field>
-    <input type="file" #input hidden (change)="fileUpload($event)">
-    <button class="btn" type="button" mat-button
-            (click)="triggerInput()">{{imagePrevew ? 'поменять фото' : 'загрузить фото'}}</button>
-    <div class="img" *ngIf="imagePrevew">
-      <img [src]="imagePrevew" alt="imagePrevew">
-      <button class="btn-close" (click)="imagePrevew = ''">&times;</button>
-    </div>
+    <button class="btn"
+            type="submit"
+            [disabled]="forma.invalid"
+    >
+      {{forma.invalid ? 'заполни все порля формы' : 'создать КПА и перейти на главную страницу' }}
+    </button>
   </form>
 </section>

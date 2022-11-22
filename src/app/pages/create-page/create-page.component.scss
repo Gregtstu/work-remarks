@@ -22,41 +22,19 @@
       margin-top: 10px;
     }
 
-    .btn {
-      font-size: 18px;
-      border: 1px solid black;
-      padding: 10px;
-      text-align: center;
-      width: 99%;
-    }
-
-    .img {
-      border: 1px solid black;
-      width: 50%;
-      margin: 20px auto;
-      text-align: center;
-      position: relative;
-
-      img {
-        width: 80%;
-      }
-
-      .btn-close {
-        position: absolute;
-        top: 5px;
-        right: 5px;
-        margin-top: 20px;
-        background: transparent;
-        font-size: 50px;
-        border: none;
-        cursor: pointer;
-      }
-
-    }
   }
-
-
-  .form-container::-webkit-scrollbar {
+  .btn {
+    width: 99%;
+    margin: 20px 0;
+    box-sizing: border-box;
+    background-color: transparent;
+    font-size: 18px;
+    border: 1px solid black;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+  }
+    .form-container::-webkit-scrollbar {
     width: 20px;
   }
 
@@ -67,7 +45,7 @@
 
   .form-container::-webkit-scrollbar-thumb {
     border-radius: 100px;
-    background-image: linear-gradient(180deg, #ba872c 0%, #5462c3 99%);
+    background-color:#b9deed;
     box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
   }
 }

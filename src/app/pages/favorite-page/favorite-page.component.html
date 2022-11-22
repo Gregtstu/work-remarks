@@ -1,1 +1,31 @@
-<p>favorite-page works!</p>
+<section class="favorite">
+  <div class="wrapper" *ngIf="posts.length; else empty">
+    <mat-form-field appearance="fill">
+      <mat-label>Поиск по наименованию КПА</mat-label>
+      <input matInput [(ngModel)]="search">
+    </mat-form-field>
+    <div class="mat-elevation-z5 container">
+      <mat-card class="example-card" *ngFor="let post of posts | search:search">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{post.name}}</mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+            <mat-card-subtitle>Шифр: <b>{{post.shifr}}</b></mat-card-subtitle>
+            <mat-card-subtitle>Изделие: <b>{{post.izd}}</b></mat-card-subtitle>
+            <mat-card-subtitle>Комментариев: <b>{{post.comments.length}}</b></mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+          <button mat-button [routerLink]="['/post', post.id]">Подробнее</button>
+          <button mat-icon-button (click)="delete(post.id)" color="warn">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+  <ng-template #empty>
+    <h2 class="empty">Вы еще ничего не добавили в избранное</h2>
+  </ng-template>
+</section>
+

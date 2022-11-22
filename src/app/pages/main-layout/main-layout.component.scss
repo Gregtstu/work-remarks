@@ -16,7 +16,7 @@ mat-toolbar{
 
     &__link {
       text-decoration: none;
-      color: #b2986a;
+      color: #6d6d94;
       font-size: 2rem;
     }
 
@@ -60,7 +60,7 @@ mat-toolbar{
       height: calc(100% - 90px);
       background-color: #b7afaf;
       font-size: 35px;
-      z-index: 1;
+      z-index: 10;
     }
 
     .navigation__item{

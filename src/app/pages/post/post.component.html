@@ -1,1 +1,24 @@
-<p>post works!</p>
+<section class="post">
+<div class="container">
+  <div class="header">
+    <h2>{{post.name}} {{post.shifr}} ({{post.izd}})</h2>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item [routerLink]="['/edit', postId.id]">
+        <mat-icon>settings</mat-icon>
+        <span>перейти в настройки</span>
+      </button>
+      <button mat-menu-item [routerLink]="['/']">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Вернуться на главную страницу</span>
+      </button>
+    </mat-menu>
+  </div>
+  <div class="description">
+    <h3>Техническое описание:</h3>
+    <p>{{post.description}}</p>
+  </div>
+</div>
+</section>

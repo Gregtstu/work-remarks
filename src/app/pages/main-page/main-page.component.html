@@ -1,1 +1,25 @@
-<p>main-page works!</p>
+<section class="main">
+  <div class="wrapper">
+    <mat-form-field appearance="fill">
+      <mat-label>Поиск по наименованию КПА</mat-label>
+      <input matInput [(ngModel)]="search">
+    </mat-form-field>
+    <div class="mat-elevation-z5 container">
+      <mat-card class="example-card" *ngFor="let post of posts | search:search">
+        <mat-card-header>
+          <mat-card-title-group>
+            <mat-card-title>{{post.name}}</mat-card-title>
+            <mat-card-subtitle></mat-card-subtitle>
+            <mat-card-subtitle>Шифр: <b>{{post.shifr}}</b></mat-card-subtitle>
+            <mat-card-subtitle>Изделие: <b>{{post.izd}}</b></mat-card-subtitle>
+            <mat-card-subtitle>Комментариев: <b>{{post.comments.length}}</b></mat-card-subtitle>
+          </mat-card-title-group>
+        </mat-card-header>
+        <mat-card-content>
+          <button mat-button [routerLink]="['/post', post.id]">Подробнее</button>
+          <mat-icon>{{post.favorite ? 'favorite' : 'favorite_border'}}</mat-icon>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+</section>

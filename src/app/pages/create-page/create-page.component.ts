@@ -1,35 +1,60 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {ApiService} from "../../settings/services/api.service";
+import {IPost} from "../../settings/interfaces/ipost";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-create-page',
   templateUrl: './create-page.component.html',
   styleUrls: ['./create-page.component.scss']
 })
-export class CreatePageComponent {
+export class CreatePageComponent implements OnInit {
 
   @ViewChild('input') inputRef!: ElementRef;
-  public image!:File;
-  public imagePrevew:string | ArrayBuffer | null;
+  public image!: File;
+  public imagePrevew: string | ArrayBuffer | null;
+  public imagePrevew2!: string | ArrayBuffer | null;
+  public forma!: FormGroup;
 
-  constructor() {
+  constructor(
+    private formBuilder: FormBuilder,
+    private apiServ: ApiService,
+    private router: Router
+  ) {
     this.imagePrevew = '';
   }
-  triggerInput() {
-    this.inputRef.nativeElement.click();
+
+  ngOnInit(): void {
+    this.forma = this.formBuilder.group({
+      izd: ['', Validators.required],
+      name: ['', Validators.required],
+      shifr: ['', Validators.required],
+      description: ['', Validators.required],
+    })
   }
 
-  fileUpload(e:any) {
-    const file = e.target.files[0];
-    this.image = file;
-
-    const reader = new FileReader();
-
-    reader.onload = () => {
-      this.imagePrevew = reader.result;
-      console.log(this.imagePrevew)
+  onSubmit() {
+    if (this.forma.invalid) return;
+    const obj: IPost = {
+      izd: this.forma.value.izd,
+      name: this.forma.value.name,
+      shifr: this.forma.value.shifr,
+      description: this.forma.value.description,
+      comments: ['нет комментариев'],
+      favorite:false,
     }
 
-    reader.readAsDataURL(file);
+    this.apiServ.addPost(obj).subscribe({
+      next: (res) => {
+        this.forma.reset();
+        this.router.navigate(['/main']);
+      },
+      error:(er) => {
+        alert('Возникла проблема с отправкой на сервер');
+      }
+    });
 
   }
+
 }

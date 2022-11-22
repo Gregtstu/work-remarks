@@ -1,0 +1,22 @@
+.post {
+  padding: 0 20px;
+
+  .container{
+    max-width: 1000px;
+    margin: 0 auto;
+
+    .header {
+      border-bottom: 1px solid black;
+      border-top: 1px solid black;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 20px;
+    }
+
+    .description {
+      padding: 0 20px;
+      font-size: 20px;
+    }
+
+  }
+}
