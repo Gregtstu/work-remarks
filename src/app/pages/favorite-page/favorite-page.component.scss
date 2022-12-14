@@ -28,6 +28,11 @@
         display: flex;
         justify-content: space-between;
       }
+
+      .comments{
+        cursor: pointer;
+        text-decoration: underline;
+      }
     }
 
     .container::-webkit-scrollbar {

@@ -1,0 +1,13 @@
+<div class="comments-wrapper">
+  <app-comment-form (emitComment)="addMainComment($event)"></app-comment-form>
+  <app-comment *ngFor="let comment of comments"
+               [comment]="comment"
+               [childrenComments]="childComments"
+               (deleteComment)="deleteComment($event)"
+               (deleteNewComment)="deleteNewComment($event)"
+               (updateComment)="updateComment($event)"
+               (updatenewComment)="updateNewComment($event)"
+               (createComment)="createComment($event)"
+  ></app-comment>
+</div>
+<button class="btn" mat-button [routerLink]="['/']">Вернуться на главную страницу</button>

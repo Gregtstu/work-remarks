@@ -6,6 +6,8 @@ import {CreatePageComponent} from "./pages/create-page/create-page.component";
 import {FavoritePageComponent} from "./pages/favorite-page/favorite-page.component";
 import {EditPageComponent} from "./pages/edit-page/edit-page.component";
 import {PostComponent} from "./pages/post/post.component";
+import {CommentsComponent} from "./pages/comment-components/comments/comments.component";
+
 
 const routes: Routes = [
   {
@@ -17,7 +19,8 @@ const routes: Routes = [
       {path:'post/:id', component:PostComponent},
       {path:'edit/:id', component:EditPageComponent},
     ]
-  }
+  },
+  {path:'comments/:id', component:CommentsComponent}
 ];
 
 @NgModule({

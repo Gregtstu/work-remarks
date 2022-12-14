@@ -20,7 +20,11 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatCardModule} from "@angular/material/card";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatMenuModule} from '@angular/material/menu';
-import { SearchPipe } from './settings/pipes/search.pipe';
+import {SearchPipe} from './settings/pipes/search.pipe';
+import {CommentFormComponent} from './pages/comment-components/comment-form/comment-form.component';
+import {CommentComponent} from './pages/comment-components/comment/comment.component';
+import {CommentsComponent} from './pages/comment-components/comments/comments.component';
+import {ModalkaComponent} from './modalka/modalka.component';
 
 
 @NgModule({
@@ -32,24 +36,28 @@ import { SearchPipe } from './settings/pipes/search.pipe';
     FavoritePageComponent,
     MainPageComponent,
     PostComponent,
-    SearchPipe
+    SearchPipe,
+    CommentFormComponent,
+    CommentComponent,
+    CommentsComponent,
+    ModalkaComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatButtonModule,
-        MatSelectModule,
-        MatInputModule,
-        HttpClientModule,
-        ReactiveFormsModule,
-        MatCardModule,
-        MatDialogModule,
-        MatMenuModule,
-        FormsModule
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
+    MatSelectModule,
+    MatInputModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatCardModule,
+    MatDialogModule,
+    MatMenuModule,
+    FormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

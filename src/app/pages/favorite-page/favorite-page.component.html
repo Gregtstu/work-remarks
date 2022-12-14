@@ -12,7 +12,9 @@
             <mat-card-subtitle></mat-card-subtitle>
             <mat-card-subtitle>Шифр: <b>{{post.shifr}}</b></mat-card-subtitle>
             <mat-card-subtitle>Изделие: <b>{{post.izd}}</b></mat-card-subtitle>
-            <mat-card-subtitle>Комментариев: <b>{{post.comments.length}}</b></mat-card-subtitle>
+            <mat-card-subtitle  class="comments"
+                                [routerLink]="['/comments', post.id]"
+            >Комментарии: <b>{{post.comments ? 'есть' : 'отсутствуют'}}</b></mat-card-subtitle>
           </mat-card-title-group>
         </mat-card-header>
         <mat-card-content>

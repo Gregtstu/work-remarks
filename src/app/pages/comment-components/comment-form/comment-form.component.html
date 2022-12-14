@@ -1,0 +1,33 @@
+<section class="comment-form">
+  <button class="comment-form__btn"
+          *ngIf="!disabledFlag"
+          mat-raised-button
+          color="accent"
+          type="submit"
+          (click)="disabledFlag = !disabledFlag"
+  > +
+  </button>
+  <form
+    class="comment-form__form"
+    [formGroup]="forma"
+    *ngIf="disabledFlag"
+    (submit)="submit()">
+    <mat-form-field appearance="outline">
+      <mat-label>Введи свое имя</mat-label>
+      <input matInput formControlName="userName" placeholder="Введи свое имя">
+      <mat-error *ngIf="forma.get('userName')?.errors?.['required']"><b>*ОБЯЗАТЕЛЬНО</b> введи свое имя</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Веди текст комментария</mat-label>
+      <textarea matInput formControlName="commentText" placeholder="Веди текст комментария"></textarea>
+      <mat-error *ngIf="forma.get('commentText')?.errors?.['required']"><b>*ОБЯЗАТЕЛЬНО</b> введи текст комментария</mat-error>
+    </mat-form-field>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="forma.invalid"
+    >создать комментарий
+    </button>
+  </form>
+</section>

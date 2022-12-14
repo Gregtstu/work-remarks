@@ -1,0 +1,32 @@
+.comments {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 20px;
+
+  .main__item {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+    .wrapper-main {
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .wrapper {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .newComment__item {
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+}

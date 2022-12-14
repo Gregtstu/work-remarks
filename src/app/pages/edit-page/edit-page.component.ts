@@ -35,13 +35,11 @@ export class EditPageComponent implements OnInit {
         return this.postService.getById(params['id']);
       })).subscribe(post => {
       this.post = post;
-      console.log(this.post)
       this.form = new FormGroup({
         izd: new FormControl(this.post.izd, [Validators.required]),
         name: new FormControl(this.post.name, [Validators.required]),
         description: new FormControl(this.post.description, [Validators.required]),
         shifr: new FormControl(this.post.shifr, [Validators.required]),
-        comments: new FormControl(this.post.comments, [Validators.required]),
       });
     });
     this.allPostsLS();

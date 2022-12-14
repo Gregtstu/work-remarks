@@ -1,9 +1,15 @@
 <section class="edit">
   <div class="container">
     <div class="header">
-      <button  mat-icon-button color="warn" (click)="delete(post)"><mat-icon>delete</mat-icon></button>
-      <button mat-icon-button color="accent" (click)="toggleLocalStoragePost(post.id); disable = !disable"><mat-icon>{{disable ? 'favorite' : 'favorite_border'}}</mat-icon></button>
-      <button mat-icon-button color="primary" (click)="flag = !flag" [disabled]="flag"><mat-icon>edit</mat-icon></button>
+      <button  mat-icon-button color="warn" (click)="delete(post)">
+        <mat-icon>delete</mat-icon>
+      </button>
+      <button mat-icon-button color="accent" (click)="toggleLocalStoragePost(post.id); disable = !disable">
+        <mat-icon>{{disable ? 'favorite' : 'favorite_border'}}</mat-icon>
+      </button>
+      <button mat-icon-button color="primary" (click)="flag = !flag" [disabled]="flag">
+        <mat-icon>edit</mat-icon>
+      </button>
       <button mat-icon-button [routerLink]="['/']">
         <mat-icon>exit_to_app</mat-icon>
       </button>

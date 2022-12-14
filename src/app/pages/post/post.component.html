@@ -10,6 +10,10 @@
         <mat-icon>settings</mat-icon>
         <span>перейти в настройки</span>
       </button>
+      <button mat-menu-item [routerLink]="['/comments', postId.id]">
+        <mat-icon>comments</mat-icon>
+        <span>перейти к комментариям</span>
+      </button>
       <button mat-menu-item [routerLink]="['/']">
         <mat-icon>exit_to_app</mat-icon>
         <span>Вернуться на главную страницу</span>

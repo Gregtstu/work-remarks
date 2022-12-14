@@ -1,0 +1,54 @@
+<section class="comments">
+  <ul class="comment__main main">
+    <li class="main__item">
+      <div class="wrapper-main">
+        <div class="main__item-wrapper wrapper">
+          <img class="main__item-img img" src="assets/user-icon.png">
+          <p class="main__item-comment comment">{{comment.userName}}</p>
+        </div>
+        <p class="comment">{{comment.commentText}}</p>
+        <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item (click)="delete(comment.id)">
+            <mat-icon>delete</mat-icon>
+            <span>Удалить</span>
+          </button>
+          <button mat-menu-item (click)="update(comment)">
+            <mat-icon>edit</mat-icon>
+            <span>Редактировать</span>
+          </button>
+          <button mat-menu-item (click)="create(comment)">
+            <mat-icon>comment</mat-icon>
+            <span>Комментировать</span>
+          </button>
+        </mat-menu>
+      </div>
+      <div class="wrapper-child">
+        <ul class="main__item-newComment newComment" *ngFor="let newComment of comment.newComments">
+          <li class="newComment__item">
+            <div class="newComment__item-wrapper wrapper">
+              <img class="newComment__img img" src="assets/user-icon.png">
+              <p class="comment">{{newComment.userName}}</p>
+            </div>
+            <p class="comment">{{newComment.commentText}}</p>
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="deleteNew(comment.id, newComment.id)">
+                <mat-icon>delete</mat-icon>
+                <span>Удалить</span>
+              </button>
+              <button mat-menu-item (click)="updateNewComment(comment.id, newComment)">
+                <mat-icon>edit</mat-icon>
+                <span>Редактировать</span>
+              </button>
+            </mat-menu>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</section>

@@ -31,7 +31,7 @@ export class CreatePageComponent implements OnInit {
       name: ['', Validators.required],
       shifr: ['', Validators.required],
       description: ['', Validators.required],
-    })
+    });
   }
 
   onSubmit() {
@@ -41,7 +41,6 @@ export class CreatePageComponent implements OnInit {
       name: this.forma.value.name,
       shifr: this.forma.value.shifr,
       description: this.forma.value.description,
-      comments: ['нет комментариев'],
       favorite:false,
     }
 

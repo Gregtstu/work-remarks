@@ -1,0 +1,16 @@
+.comments-wrapper{
+  max-height: 750px;
+  overflow: auto;
+}
+.btn {
+  width: 80%;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 20px;
+  left: 10%;
+  background-color: transparent;
+  font-size: 18px;
+  border: 1px solid black;
+  text-align: center;
+  cursor: pointer;
+}

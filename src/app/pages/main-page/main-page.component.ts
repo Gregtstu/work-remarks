@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {ApiService} from "../../settings/services/api.service";
 import {IPost} from "../../settings/interfaces/ipost";
 import {LocalStorageService} from "../../settings/services/local-storage.service";
-import {Observable} from "rxjs";
 
 
 @Component({
@@ -15,7 +14,10 @@ export class MainPageComponent implements OnInit {
   public disable: boolean = false;
   public search: string = '';
 
-  constructor(public apiServ: ApiService, private localStarage: LocalStorageService) {
+  constructor(
+    public apiServ: ApiService,
+    private localStarage: LocalStorageService,
+  ) {
   }
 
   ngOnInit(): void {
@@ -29,6 +31,7 @@ export class MainPageComponent implements OnInit {
     });
   }
 
+
   getFavorite(): void {
     const LSPosts = this.localStarage.getLs('posts');
     LSPosts.forEach((item: IPost) => {
@@ -40,4 +43,13 @@ export class MainPageComponent implements OnInit {
     });
   }
 
+  favorite(post:IPost) {
+    const posts = this.localStarage.getLs('posts');
+    if (!this.disable) {
+      this.localStarage.addLs(post, post.id);
+    }else {
+      post.favorite = false;
+      this.localStarage.removeLs(posts, post.id);
+    }
+  }
 }
